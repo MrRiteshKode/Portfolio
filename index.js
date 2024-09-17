@@ -143,7 +143,7 @@ ham.addEventListener("click", () => {
     else {
         navList.style.visibility = "visible";
         navList.style.display = "block";
-        ham.innerHTML = '<i class="fa-solid fa-xmark fa-lg"></i>';
+        ham.innerHTML = '<i class="fa-solid fa-xmark fa-2xl"></i>';
     }
 
 });
