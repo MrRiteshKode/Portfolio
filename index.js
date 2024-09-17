@@ -1,19 +1,51 @@
 "use strict";
 
-window.onload = function exampleFunction(){
-// function to be executed
-const loader = document.querySelector(".loader");
-const content = document.querySelector(".after-loader");
-loader.style.display="none";
-content.style.display="block";
+// dark mode
+let darkBtn = document.querySelector(".dark-mode");
+
+function darkMode() {
+    if (localStorage.getItem("dark") != null) {
+        darkBtn.innerHTML = '<i class="fa-solid fa-lightbulb fa-lg"></i>';
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+        document.querySelector("form .inputs").style.opacity = "1";
+    }
+    else {
+        darkBtn.innerHTML = '<i class="fa-solid fa-moon fa-lg"></i>';
+        document.body.style.backgroundColor = "initial";
+        document.body.style.color = "initial";
+        document.querySelector(".inputs").style.opacity = "0.4";
+    }
+}
+
+darkMode();
+
+darkBtn.addEventListener("click", () => {
+    if (localStorage.getItem("dark") == null) {
+        localStorage.setItem("dark", true);
+    }
+    else {
+        localStorage.removeItem("dark");
+    }
+    darkMode();
+})
+
+// onlaod function
+window.onload = function exampleFunction() {
+    // function to be executed
+    const loader = document.querySelector(".loader");
+    const content = document.querySelector(".after-loader");
+    loader.style.display = "none";
+    content.style.display = "block";
+    document.getElementById("show").click();
 
 }
 
+//  aos function
 AOS.init();
 
 let questions = document.querySelectorAll(".first-q");
-// let showElem = document.getElementById("show");
-// showElem.style.maxHeight = showElem.scrollHeight + "px";
+
 for (const question of questions) {
     question.addEventListener("click", (e) => {
         // alert(1)
@@ -71,28 +103,28 @@ function type() {
         }
     }
 
- else {
-    if (chance == 1) {
-        typingElement.textContent = `${text.substring(0, index++)}|`;
-        if (index > text.length) {
-            deleting = true;
-            setTimeout(type, 1500);
-        } else {
-            setTimeout(type, 100);
+    else {
+        if (chance == 1) {
+            typingElement.textContent = `${text.substring(0, index++)}|`;
+            if (index > text.length) {
+                deleting = true;
+                setTimeout(type, 1500);
+            } else {
+                setTimeout(type, 100);
+            }
         }
-    }
 
-    else{
-        typingElement.textContent = `${text2.substring(0, index++)}|`;
-        if (index > text2.length) {
-            deleting = true;
-            setTimeout(type, 1500);
-        } else {
-            setTimeout(type, 100);
+        else {
+            typingElement.textContent = `${text2.substring(0, index++)}|`;
+            if (index > text2.length) {
+                deleting = true;
+                setTimeout(type, 1500);
+            } else {
+                setTimeout(type, 100);
+            }
         }
     }
 }
-}  
 // Start the typing effect
 type();
 
@@ -101,44 +133,44 @@ type();
 let ham = document.getElementById("ham");
 let navList = document.querySelector(".nav-list");
 
-ham.addEventListener("click", ()=>{
+ham.addEventListener("click", () => {
     navList.classList.toggle("show")
-    if(!navList.classList.contains("show")){
+    if (!navList.classList.contains("show")) {
         navList.style.display = "none";
         navList.style.visibility = "hidden";
-        ham.innerHTML = '<i class="fa-solid fa-bars fa-xl"></i>';
+        ham.innerHTML = '<i class="fa-solid fa-bars fa-lg"></i>';
     }
-    else{
+    else {
         navList.style.visibility = "visible";
         navList.style.display = "block";
-        ham.innerHTML = '<i class="fa-solid fa-xmark fa-xl"></i>';
+        ham.innerHTML = '<i class="fa-solid fa-xmark fa-lg"></i>';
     }
-    
+
 });
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     // Code to execute when the window is resized
-    if(this.window.innerWidth>500){
+    if (this.window.innerWidth > 500) {
         navList.style.visibility = "visible";
         navList.style.display = "block";
     }
-    else{
+    else {
         navList.style.display = "none";
         navList.style.visibility = "hidden";
         ham.innerHTML = '<i class="fa-solid fa-bars fa-xl"></i>';
     }
-  });
+});
 
 //   scrool reach top event
 const reachTop = document.querySelector(".reach-top");
-window.onscroll = function(){
+window.onscroll = function () {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         reachTop.style.display = "block";
-      } else {
+    } else {
         reachTop.style.display = "none";
-      }
+    }
 }
 
-reachTop.addEventListener("click",()=>{
+reachTop.addEventListener("click", () => {
     document.documentElement.scrollTop = 0;
 });

@@ -9,6 +9,11 @@
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
 }
+/* body{
+    background-color: 
+    color: white;
+} */
+
 html {
     scroll-behavior: smooth;
 }
@@ -23,7 +28,7 @@ html {
     
     border: 10px solid var(--rgb);
   border-radius: 50%;
-  border-top: 16px solid #f3f3f3;
+  border-top: 10px solid #f3f3f3;
   width: 100px;
   height: 100px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
@@ -76,6 +81,11 @@ nav{
 }
 .ham{
     display: none;
+}
+.dark-mode{
+    float: right;
+    margin:0px 20px 0px 20px;
+   cursor: pointer;
 }
 .nav-header{
     margin: 1rem;
@@ -202,7 +212,7 @@ span #progress{
     font-size: xx-large;
     margin-bottom: 20px;
     font-weight: 500;
-    color: black;
+    /* color: black; */
 }
 .about-me p:nth-child(n+2){
     font-size: large;
@@ -626,6 +636,7 @@ textarea:focus{
     outline: 1px solid var(--rgb);
     opacity: 1;
 }
+
 #btn{
     height: 3rem;
     width: 10rem;
@@ -640,7 +651,6 @@ textarea:focus{
 #btn:focus{
     outline: 1px solid var(--rgb); 
 }
-
 /* footer */
 .footer{
     margin-top: 3rem;
